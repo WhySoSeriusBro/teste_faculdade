@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Laboratório de Google Analytics</title>
+    
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; max-width: 800px; margin: 40px auto; padding: 20px; background-color: #f4f4f9; }
+        header { text-align: center; border-bottom: 2px solid #333; padding-bottom: 20px; }
+        .container { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .track-section { margin: 30px 0; padding: 20px; border: 1px dashed #ccc; }
+        button { background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; }
+        button:hover { background-color: #45a049; }
+        .btn-secondary { background-color: #008CBA; }
+        .nav-links a { margin-right: 15px; color: #333; text-decoration: none; font-weight: bold; }
+        .nav-links a:hover { color: #4CAF50; }
+        footer { margin-top: 50px; text-align: center; font-size: 0.8em; color: #666; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Laboratório de Aprendizagem GA4</h1>
+        <nav class="nav-links">
+            <a href="#inicio">Início</a>
+            <a href="https://www.google.com" target="_blank">Link Externo (Outbound)</a>
+            <a href="mailto:exemplo@email.com">Contacto Email</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="track-section">
+            <h2>1. Testar Cliques em Botões</h2>
+            <p>Estes botões servem para praticares a criação de <strong>Eventos Personalizados</strong>.</p>
+            <button id="btn-comprar">Simular Compra</button>
+            <button id="btn-newsletter" class="btn-secondary">Subscrever Newsletter</button>
+        </section>
+
+        <section class="track-section">
+            <h2>2. Testar Formulários</h2>
+            <form id="meu-formulario">
+                <label for="nome">Nome:</label><br>
+                <input type="text" id="nome" name="nome" placeholder="Teu nome..."><br><br>
+                <button type="submit">Enviar Dados</button>
+            </form>
+        </section>
+
+        <section style="height: 1000px; background: #eee; margin-top: 20px; padding: 20px;">
+            <h2>3. Testar Scroll (Rolagem)</h2>
+            <p>Desce até ao fim da página para ver se o GA4 regista o evento de scroll a 90%.</p>
+        </section>
+    </main>
+
+    <footer id="fim">
+        <p>&copy; 2026 - O meu site de testes de Analytics</p>
+    </footer>
+</div>
+
+<script>
+    // Pequeno script para o formulário não recarregar a página no teste
+    document.getElementById('meu-formulario').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Formulário enviado com sucesso! (Isto pode ser um evento no GA4)');
+    });
+</script>
+
+</body>
+</html>
