@@ -3,69 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GA4 Testing Lab</title>
+    <title>FCT NOVA - Analytics Lab</title>
 
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.5; color: #333; max-width: 600px; margin: 40px auto; padding: 20px; background-color: #f9f9f9; }
-        section { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin-bottom: 20px; border: 1px solid #eee; }
-        h1 { color: #1a73e8; text-align: center; }
-        h2 { font-size: 1.2rem; margin-top: 0; color: #555; }
-        button { cursor: pointer; padding: 10px 15px; border: none; border-radius: 5px; font-weight: bold; margin: 5px 0; width: 100%; transition: 0.2s; }
+        /* Estilo Inspirado na FCT UNL */
+        :root {
+            --fct-blue: #003366;
+            --fct-accent: #f0ad4e;
+            --bg-gray: #f4f4f4;
+        }
+
+        body { font-family: Arial, sans-serif; margin: 0; color: #333; background-color: var(--bg-gray); }
         
-        /* Cores dos Botões para distinguir testes */
-        .btn-primary { background-color: #1a73e8; color: white; }
-        .btn-success { background-color: #34a853; color: white; }
-        .btn-warning { background-color: #fbbc05; color: black; }
+        /* Barra de Topo */
+        .top-bar { background: var(--fct-blue); color: white; padding: 8px 5%; font-size: 12px; display: flex; justify-content: flex-end; }
+        .top-bar a { color: white; text-decoration: none; margin-left: 15px; }
+
+        /* Header e Nav */
+        header { background: white; padding: 20px 5%; border-bottom: 4px solid var(--fct-blue); }
+        .logo { font-size: 24px; font-weight: bold; color: var(--fct-blue); }
+        nav { background: #eee; padding: 0 5%; display: flex; }
+        nav a { padding: 15px; color: var(--fct-blue); text-decoration: none; font-weight: bold; font-size: 14px; }
+        nav a:hover { background: #ddd; }
+
+        /* Hero Banner */
+        .hero { background: #004488; color: white; padding: 60px 5%; text-align: center; }
+        .hero h1 { margin: 0 0 20px 0; }
+        .btn-main { background: var(--fct-accent); color: white; padding: 15px 30px; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; font-size: 16px; }
+
+        /* Content Grid */
+        .container { display: flex; flex-wrap: wrap; padding: 40px 5%; gap: 30px; max-width: 1200px; margin: auto; }
+        .main-col { flex: 2; min-width: 300px; }
+        .side-col { flex: 1; min-width: 250px; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+
+        /* Elementos de Teste */
+        .card { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; border-left: 5px solid var(--fct-blue); }
+        input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        .btn-side { width: 100%; background: var(--fct-blue); color: white; padding: 10px; border: none; cursor: pointer; }
+
+        /* Espaçador para Scroll */
+        .scroll-space { height: 600px; display: flex; align-items: center; justify-content: center; color: #999; font-style: italic; }
         
-        input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box; }
-        .spacer { height: 800px; background: linear-gradient(#fff, #f0f0f0); display: flex; align-items: center; justify-content: center; color: #999; font-style: italic; }
+        footer { background: #333; color: white; text-align: center; padding: 30px; margin-top: 40px; }
     </style>
 </head>
 <body>
 
-    <h1>GA4 Testing Lab 🧪</h1>
-
-    <section>
-        <h2>1. Eventos de Clique</h2>
-        <p>Usa estes botões para ver eventos no Real-Time.</p>
-        <button id="btn_compra_teste" class="btn-primary">Simular Clique de Compra</button>
-        <button id="btn_download_guia" class="btn-success">Simular Download de PDF</button>
-    </section>
-
-    <section>
-        <h2>2. Links Externos</h2>
-        <p>O GA4 mede isto automaticamente como "click".</p>
-        <a href="https://www.google.com" target="_blank" id="link_externo_google">Sair para o Google</a>
-    </section>
-
-    <section>
-        <h2>3. Formulário de Contacto</h2>
-        <form id="form_test">
-            <input type="email" id="email_user" placeholder="Teu email para teste" required>
-            <button type="submit" class="btn-warning">Enviar Form (Lead)</button>
-        </form>
-    </section>
-
-    <div class="spacer">
-        <p>Faz scroll para baixo para disparar o evento de 90% de rolagem...</p>
+    <div class="top-bar">
+        <a href="https://www.unl.pt" target="_blank" id="link-top-unl">NOVA University</a>
+        <a href="#">Intranet</a>
     </div>
 
-    <section id="footer_area">
-        <p>Chegaste ao fim! O evento de <strong>scroll</strong> deve ter disparado agora.</p>
+    <header>
+        <div class="logo">FCT NOVA | <span style="font-weight: normal; color: #666;">Analytics Lab</span></div>
+    </header>
+
+    <nav>
+        <a href="#ensino">Ensino</a>
+        <a href="#investigacao">Investigação</a>
+        <a href="https://github.com" target="_blank" id="menu-github">Ver Código no GitHub</a>
+    </nav>
+
+    <section class="hero">
+        <h1>Laboratório de Testes de Dados</h1>
+        <p>Clica no botão abaixo para simular uma conversão de candidatura.</p>
+        <br>
+        <button id="btn-candidatura" class="btn-main">SIMULAR CANDIDATURA</button>
     </section>
 
+    <div class="container">
+        <div class="main-col">
+            <div class="card">
+                <h3>Notícias e Downloads</h3>
+                <p>O GA4 rastreia automaticamente cliques em ficheiros PDF.</p>
+                <br>
+                <a href="guia-estudante-ficticio.pdf" id="download-guia" style="color: var(--fct-blue); font-weight: bold;">
+                    📥 Download Guia de Curso (PDF)
+                </a>
+            </div>
+
+            <div class="scroll-space">
+                <p>Continua a descer para testar o Scroll Tracking (90%)...</p>
+            </div>
+
+            <div class="card" id="fim-da-pagina">
+                <h3>Fim da Página</h3>
+                <p>Se chegaste aqui, o evento de "scroll" foi enviado.</p>
+            </div>
+        </div>
+
+        <div class="side-col">
+            <h3>Pedir Informações</h3>
+            <p style="font-size: 13px;">Testa o rastreamento de formulários.</p>
+            <form id="form-contacto">
+                <input type="text" id="nome" placeholder="Nome" required>
+                <input type="email" id="email" placeholder="Email" required>
+                <button type="submit" class="btn-side" id="btn-submit">Enviar Pedido</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Simulação FCT NOVA para fins educativos.</p>
+    </footer>
+
     <script>
-        // Impede o formulário de recarregar a página para não perderes o rastro no GA4
-        document.getElementById('form_test').addEventListener('submit', function(e) {
+        // Funcionalidades de Alerta (Não afetam o GA4, apenas para tu saberes que clicaste)
+        document.getElementById('form-contacto').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Formulário enviado! Verifica o DebugView no GA4.');
+            alert('Formulário Enviado! Verifica o evento "form_submit" no GA4.');
         });
 
-        // Alerta simples para os botões
-        document.querySelectorAll('button').forEach(btn => {
-            btn.addEventListener('click', function() {
-                console.log('Botão clicado: ' + this.id);
-            });
+        document.getElementById('btn-candidatura').addEventListener('click', function() {
+            alert('Evento de Candidatura disparado!');
         });
     </script>
 
