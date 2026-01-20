@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NW701YYM7S"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-NW701YYM7S');
+    </script>
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FCT NOVA - Analytics Lab</title>
@@ -13,40 +26,154 @@
             --bg-gray: #f4f4f4;
         }
 
-        body { font-family: Arial, sans-serif; margin: 0; color: #333; background-color: var(--bg-gray); }
-        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            color: #333;
+            background-color: var(--bg-gray);
+        }
+
         /* Barra de Topo */
-        .top-bar { background: var(--fct-blue); color: white; padding: 8px 5%; font-size: 12px; display: flex; justify-content: flex-end; }
-        .top-bar a { color: white; text-decoration: none; margin-left: 15px; }
+        .top-bar {
+            background: var(--fct-blue);
+            color: white;
+            padding: 8px 5%;
+            font-size: 12px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .top-bar a {
+            color: white;
+            text-decoration: none;
+            margin-left: 15px;
+        }
 
         /* Header e Nav */
-        header { background: white; padding: 20px 5%; border-bottom: 4px solid var(--fct-blue); }
-        .logo { font-size: 24px; font-weight: bold; color: var(--fct-blue); }
-        nav { background: #eee; padding: 0 5%; display: flex; }
-        nav a { padding: 15px; color: var(--fct-blue); text-decoration: none; font-weight: bold; font-size: 14px; }
-        nav a:hover { background: #ddd; }
+        header {
+            background: white;
+            padding: 20px 5%;
+            border-bottom: 4px solid var(--fct-blue);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--fct-blue);
+        }
+
+        nav {
+            background: #eee;
+            padding: 0 5%;
+            display: flex;
+        }
+
+        nav a {
+            padding: 15px;
+            color: var(--fct-blue);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            background: #ddd;
+        }
 
         /* Hero Banner */
-        .hero { background: #004488; color: white; padding: 60px 5%; text-align: center; }
-        .hero h1 { margin: 0 0 20px 0; }
-        .btn-main { background: var(--fct-accent); color: white; padding: 15px 30px; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; font-size: 16px; }
+        .hero {
+            background: #004488;
+            color: white;
+            padding: 60px 5%;
+            text-align: center;
+        }
+
+        .hero h1 {
+            margin: 0 0 20px 0;
+        }
+
+        .btn-main {
+            background: var(--fct-accent);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 16px;
+        }
 
         /* Content Grid */
-        .container { display: flex; flex-wrap: wrap; padding: 40px 5%; gap: 30px; max-width: 1200px; margin: auto; }
-        .main-col { flex: 2; min-width: 300px; }
-        .side-col { flex: 1; min-width: 250px; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 40px 5%;
+            gap: 30px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .main-col {
+            flex: 2;
+            min-width: 300px;
+        }
+
+        .side-col {
+            flex: 1;
+            min-width: 250px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
 
         /* Elementos de Teste */
-        .card { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; border-left: 5px solid var(--fct-blue); }
-        input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
-        .btn-side { width: 100%; background: var(--fct-blue); color: white; padding: 10px; border: none; cursor: pointer; }
+        .card {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border-left: 5px solid var(--fct-blue);
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .btn-side {
+            width: 100%;
+            background: var(--fct-blue);
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
 
         /* Espaçador para Scroll */
-        .scroll-space { height: 600px; display: flex; align-items: center; justify-content: center; color: #999; font-style: italic; }
-        
-        footer { background: #333; color: white; text-align: center; padding: 30px; margin-top: 40px; }
+        .scroll-space {
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-style: italic;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 40px;
+        }
     </style>
 </head>
+
 <body>
 
     <div class="top-bar">
@@ -77,7 +204,8 @@
                 <h3>Notícias e Downloads</h3>
                 <p>O GA4 rastreia automaticamente cliques em ficheiros PDF.</p>
                 <br>
-                <a href="guia-estudante-ficticio.pdf" id="download-guia" style="color: var(--fct-blue); font-weight: bold;">
+                <a href="guia-estudante-ficticio.pdf" id="download-guia"
+                    style="color: var(--fct-blue); font-weight: bold;">
                     📥 Download Guia de Curso (PDF)
                 </a>
             </div>
@@ -109,15 +237,16 @@
 
     <script>
         // Funcionalidades de Alerta (Não afetam o GA4, apenas para tu saberes que clicaste)
-        document.getElementById('form-contacto').addEventListener('submit', function(e) {
+        document.getElementById('form-contacto').addEventListener('submit', function (e) {
             e.preventDefault();
             alert('Formulário Enviado! Verifica o evento "form_submit" no GA4.');
         });
 
-        document.getElementById('btn-candidatura').addEventListener('click', function() {
+        document.getElementById('btn-candidatura').addEventListener('click', function () {
             alert('Evento de Candidatura disparado!');
         });
     </script>
 
 </body>
+
 </html>
