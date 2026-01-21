@@ -187,6 +187,12 @@
     <nav>
         <a href="#ensino">Ensino</a>
         <a href="#investigacao">Investigação</a>
+        <!-- Search Form -->
+        <form action="" method="GET"
+            style="margin-left: auto; display: flex; align-items: center; padding-right: 20px;">
+            <input type="text" name="q" placeholder="Pesquisar..." style="margin: 0; padding: 5px; width: 150px;">
+            <button type="submit" style="padding: 5px 10px; margin-left: 5px; cursor: pointer;">🔍</button>
+        </form>
         <a href="https://github.com" target="_blank" id="menu-github">Ver Código no GitHub</a>
     </nav>
 
@@ -195,6 +201,43 @@
         <p>Clica no botão abaixo para simular uma conversão de candidatura.</p>
         <br>
         <button id="btn-candidatura" class="btn-main">SIMULAR CANDIDATURA</button>
+    </section>
+
+    <!-- Video Section for Engagement Tracking -->
+    <section style="background: #fff; padding: 40px 5%; text-align: center;">
+        <h2>Conhece a FCT NOVA</h2>
+        <p>Assiste ao vídeo para testar eventos de "Video Engagement".</p>
+        <br>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/Ga9kq_CkJFY?enablejsapi=1"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+        </iframe>
+    </section>
+
+    <!-- Traffic Simulator Section -->
+    <section style="background: #eef; padding: 40px 5%; text-align: center; border-top: 1px solid #ccc;">
+        <h2>Simulador de Tráfego</h2>
+        <p>Usa estes botões para recarregar a página como se viesses de diferentes fontes (UTMs).</p>
+        <div style="display: flex; justify-content: center; gap: 15px; margin-top: 20px; flex-wrap: wrap;">
+            <button onclick="window.location.href='?utm_source=facebook&utm_medium=social&utm_campaign=winter_promo'"
+                style="padding: 10px 20px; background: #3b5998; color: white; border: none; cursor: pointer; border-radius: 4px;">
+                Facebook (Social)
+            </button>
+            <button onclick="window.location.href='?utm_source=google&utm_medium=cpc&utm_campaign=brand_awareness'"
+                style="padding: 10px 20px; background: #DB4437; color: white; border: none; cursor: pointer; border-radius: 4px;">
+                Google Ads (CPC)
+            </button>
+            <button
+                onclick="window.location.href='?utm_source=newsletter_jan&utm_medium=email&utm_campaign=student_alert'"
+                style="padding: 10px 20px; background: #F4B400; color: white; border: none; cursor: pointer; border-radius: 4px;">
+                Newsletter (Email)
+            </button>
+            <button onclick="window.location.href='index.html'"
+                style="padding: 10px 20px; background: #555; color: white; border: none; cursor: pointer; border-radius: 4px;">
+                Limpar Tráfego (Direct)
+            </button>
+        </div>
     </section>
 
     <div class="container">
@@ -225,10 +268,34 @@
             <form id="form-contacto">
                 <input type="text" id="nome" placeholder="Nome" required>
                 <input type="email" id="email" placeholder="Email" required>
+
+                <select id="motivo"
+                    style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px;"
+                    required>
+                    <option value="" disabled selected>Motivo do Contacto</option>
+                    <option value="licenciatura">Saber mais sobre Licenciaturas</option>
+                    <option value="mestrado">Saber mais sobre Mestrados</option>
+                    <option value="visita">Marcar Visita</option>
+                    <option value="outro">Outro</option>
+                </select>
+
                 <button type="submit" class="btn-side" id="btn-submit">Enviar Pedido</button>
             </form>
         </div>
     </div>
+
+    <aside style="background: #222; color: white; padding: 40px 5%; text-align: center;">
+        <h3>Newsletter Semanal</h3>
+        <p>Subscreve para receberes novidades (Testa conversão de Leads secundárias).</p>
+        <form id="form-newsletter" style="max-width: 400px; margin: 20px auto; display: flex; gap: 10px;">
+            <input type="email" id="news-email" placeholder="O teu email principal" required
+                style="margin: 0; flex: 1;">
+            <button type="submit"
+                style="padding: 10px 20px; background: var(--fct-accent); border: none; color: white; font-weight: bold; cursor: pointer; border-radius: 4px;">
+                Subscrever
+            </button>
+        </form>
+    </aside>
 
     <footer>
         <p>&copy; 2026 Simulação FCT NOVA para fins educativos.</p>
@@ -238,8 +305,18 @@
         // Funcionalidades de Alerta (Não afetam o GA4, apenas para tu saberes que clicaste)
         document.getElementById('form-contacto').addEventListener('submit', function (e) {
             e.preventDefault();
-            alert('Formulário Enviado! Verifica o evento "form_submit" no GA4.');
+            const motivo = document.getElementById('motivo').value;
+            alert(`Formulário de Contacto Enviado! Motivo: ${motivo}\nVerifica o evento "form_submit" no GA4.`);
         });
+
+        // Event listener para Newsletter
+        const newsForm = document.getElementById('form-newsletter');
+        if (newsForm) {
+            newsForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                alert('Inscrição na Newsletter Confirmada!\nIsto pode contar como uma Lead secundária.');
+            });
+        }
 
         document.getElementById('btn-candidatura').addEventListener('click', function () {
             alert('Evento de Candidatura disparado!');
