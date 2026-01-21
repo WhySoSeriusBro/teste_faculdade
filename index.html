@@ -220,20 +220,23 @@
         <h2>Simulador de Tráfego</h2>
         <p>Usa estes botões para recarregar a página como se viesses de diferentes fontes (UTMs).</p>
         <div style="display: flex; justify-content: center; gap: 15px; margin-top: 20px; flex-wrap: wrap;">
-            <button onclick="window.location.href='?utm_source=facebook&utm_medium=social&utm_campaign=winter_promo'"
+            <button
+                onclick="gtag('event', 'click_cta', {'button_name': 'simulate_facebook'}); setTimeout(() => window.location.href='?utm_source=facebook&utm_medium=social&utm_campaign=winter_promo', 200)"
                 style="padding: 10px 20px; background: #3b5998; color: white; border: none; cursor: pointer; border-radius: 4px;">
                 Facebook (Social)
             </button>
-            <button onclick="window.location.href='?utm_source=google&utm_medium=cpc&utm_campaign=brand_awareness'"
+            <button
+                onclick="gtag('event', 'click_cta', {'button_name': 'simulate_google'}); setTimeout(() => window.location.href='?utm_source=google&utm_medium=cpc&utm_campaign=brand_awareness', 200)"
                 style="padding: 10px 20px; background: #DB4437; color: white; border: none; cursor: pointer; border-radius: 4px;">
                 Google Ads (CPC)
             </button>
             <button
-                onclick="window.location.href='?utm_source=newsletter_jan&utm_medium=email&utm_campaign=student_alert'"
+                onclick="gtag('event', 'click_cta', {'button_name': 'simulate_newsletter'}); setTimeout(() => window.location.href='?utm_source=newsletter_jan&utm_medium=email&utm_campaign=student_alert', 200)"
                 style="padding: 10px 20px; background: #F4B400; color: white; border: none; cursor: pointer; border-radius: 4px;">
                 Newsletter (Email)
             </button>
-            <button onclick="window.location.href='index.html'"
+            <button
+                onclick="gtag('event', 'click_cta', {'button_name': 'simulate_direct'}); setTimeout(() => window.location.href='index.html', 200)"
                 style="padding: 10px 20px; background: #555; color: white; border: none; cursor: pointer; border-radius: 4px;">
                 Limpar Tráfego (Direct)
             </button>
@@ -306,7 +309,14 @@
         document.getElementById('form-contacto').addEventListener('submit', function (e) {
             e.preventDefault();
             const motivo = document.getElementById('motivo').value;
-            alert(`Formulário de Contacto Enviado! Motivo: ${motivo}\nVerifica o evento "form_submit" no GA4.`);
+
+            // GA4 Custom Event
+            gtag('event', 'click_cta', {
+                'button_name': 'contact_submit',
+                'contact_reason': motivo
+            });
+
+            alert(`Formulário de Contacto Enviado! Motivo: ${motivo}\nVerifica o evento "click_cta" no GA4.`);
         });
 
         // Event listener para Newsletter
@@ -314,13 +324,34 @@
         if (newsForm) {
             newsForm.addEventListener('submit', function (e) {
                 e.preventDefault();
+
+                // GA4 Custom Event
+                gtag('event', 'click_cta', {
+                    'button_name': 'newsletter_submit'
+                });
+
                 alert('Inscrição na Newsletter Confirmada!\nIsto pode contar como uma Lead secundária.');
             });
         }
 
         document.getElementById('btn-candidatura').addEventListener('click', function () {
+            // GA4 Custom Event
+            gtag('event', 'click_cta', {
+                'button_name': 'candidatura_hero'
+            });
             alert('Evento de Candidatura disparado!');
         });
+
+        // Tracking Download PDF
+        const downloadBtn = document.getElementById('download-guia');
+        if (downloadBtn) {
+            downloadBtn.addEventListener('click', function () {
+                gtag('event', 'click_cta', {
+                    'button_name': 'download_guide',
+                    'file_type': 'pdf'
+                });
+            });
+        }
     </script>
 
 </body>

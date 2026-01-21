@@ -18,3 +18,11 @@ Usa a secção **"Simulador de Tráfego"** para recarregar a página com parâme
 - **Vídeo:** Reproduz o vídeo para disparar eventos de `video_start`, `video_progress`, etc.
 - **Botões:** O botão "Simular Candidatura" e downloads de PDF são rastreados.
 - **Search:** Usa a barra de pesquisa para testar o `view_search_results`.
+
+## 🚀 Como Ver os Dados no Momento (Sem Esperar)
+O GA4 demora 24-48h a processar relatórios finais, mas podes ver tudo agora:
+
+1. **Relatório de Tempo Real:** No menu esquerdo, vai a **Relatórios > Tempo Real**. Mostra atividade dos últimos 30 minutos.
+2. **DebugView (O Melhor para Testes):**
+    - Como eu ativei o `debug_mode: true` no código, podes ir a **Admin > DebugView**.
+    - Aqui os eventos aparecem **segundo a segundo** numa cronologia vertical. É o ideal para validares se o teu clique no botão disparou o evento correto.
